@@ -7,6 +7,7 @@
 </head>
 <body>
 <h3>Students</h3>
+<a href="/students/new">Add</a>
 <table border="1">
   <tr>
     <th>Id</th>

@@ -13,4 +13,14 @@ public class StudentService {
 
         return studentRepository.getStudents();
     }
+
+    public void updateStudent(Student student) {
+
+        studentRepository.updateStudent(student);
+    }
+
+    public void addStudent(Student student) {
+
+        studentRepository.addStudent(student);
+    }
 }
