@@ -14,13 +14,23 @@ public class StudentService {
         return studentRepository.getStudents();
     }
 
-    public void updateStudent(Student student) {
-
-        studentRepository.updateStudent(student);
-    }
-
     public void addStudent(Student student) {
 
         studentRepository.addStudent(student);
+    }
+
+    public void deleteStudent(long id) {
+
+        studentRepository.deleteStudent(id);
+    }
+
+    public Student getStudentById(long id) {
+
+        return studentRepository.getStudentById(id);
+    }
+
+    public void updateStudent(Student student) {
+
+        studentRepository.updateStudent(student);
     }
 }

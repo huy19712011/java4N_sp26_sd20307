@@ -22,7 +22,7 @@ public class StudentRepository {
 
         em.getTransaction().begin();
 
-
+        em.merge(student);
 
         em.getTransaction().commit();
     }
@@ -34,5 +34,19 @@ public class StudentRepository {
         em.persist(student);
 
         em.getTransaction().commit();
+    }
+
+    public void deleteStudent(long id) {
+
+        em.getTransaction().begin();
+
+        em.remove(em.find(Student.class, id));
+
+        em.getTransaction().commit();
+    }
+
+    public Student getStudentById(long id) {
+
+        return em.find(Student.class, id);
     }
 }
