@@ -13,4 +13,9 @@ public class ProductService {
 
         return productRepository.getProducts();
     }
+
+    public void addProduct(Product product) {
+
+        productRepository.addProduct(product);
+    }
 }
