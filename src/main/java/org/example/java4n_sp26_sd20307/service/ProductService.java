@@ -18,4 +18,14 @@ public class ProductService {
 
         productRepository.addProduct(product);
     }
+
+    public Product getProductById(Long id) {
+
+        return productRepository.getProductById(id);
+    }
+
+    public void updateProduct(Product product) {
+
+        productRepository.updateProduct(product);
+    }
 }

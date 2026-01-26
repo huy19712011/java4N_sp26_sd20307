@@ -14,7 +14,9 @@ import java.util.List;
 @WebServlet(name = "ProductServlet", value = {
         "/products",
         "/products/new",
-        "/products/insert"
+        "/products/insert",
+        "/products/edit",
+        "/products/update"
 })
 public class ProductServlet extends HttpServlet {
 
@@ -36,7 +38,37 @@ public class ProductServlet extends HttpServlet {
             case "/products/insert":
                 insertProduct(request, response);
                 break;
+            case "/products/edit":
+                editProduct(request, response);
+                break;
+            case "/products/update":
+                updateProduct(request, response);
+                break;
         }
+    }
+
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        Product product = getProductFromForm(request);
+
+        productService.updateProduct(product);
+
+        response.sendRedirect("/products");
+    }
+
+    private void editProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Long id = Long.parseLong(request.getParameter("id"));
+        Product product = productService.getProductById(id);
+        request.setAttribute("product", product);
+
+        List<Category> categories = categoryService.getCategories();
+        request.setAttribute("categories", categories);
+
+        request.setAttribute("categoryId", product.getCategory().getId());
+
+        request.getRequestDispatcher("/view/updateProductForm.jsp").forward(request, response);
+
     }
 
     private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {

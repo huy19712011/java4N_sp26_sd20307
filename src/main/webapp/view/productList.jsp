@@ -14,6 +14,7 @@
         <th>#</th>
         <th>Id</th>
         <th>Name</th>
+        <th>Price</th>
         <th>Category</th>
 
 
@@ -24,6 +25,7 @@
             <td>${i.index + 1}</td>
             <td>${tempProduct.id}</td>
             <td>${tempProduct.name}</td>
+            <td>${tempProduct.price}</td>
             <td>${tempProduct.category.name}</td>
 
             <td>

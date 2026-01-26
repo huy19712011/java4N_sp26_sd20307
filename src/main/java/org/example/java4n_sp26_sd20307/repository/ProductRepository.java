@@ -26,4 +26,18 @@ public class ProductRepository {
 
         em.getTransaction().commit();
     }
+
+    public Product getProductById(Long id) {
+
+        return em.find(Product.class, id);
+    }
+
+    public void updateProduct(Product product) {
+
+        em.getTransaction().begin();
+
+        em.merge(product);
+
+        em.getTransaction().commit();
+    }
 }
