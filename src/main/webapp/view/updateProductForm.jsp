@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <td><label>Price</label></td>
-            <td><input type="number" name="price" value="${product.price}"/></td>
+            <td><input type="number" step="0.001" name="price" value="${product.price}"/></td>
         </tr>
         <tr>
             <td><label>Category</label></td>
